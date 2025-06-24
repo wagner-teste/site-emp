@@ -57,7 +57,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="min-h-screen  overflow-hidden antialiased relative items-center justify-center flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="min-h-screen overflow-hidden antialiased relative items-center justify-center flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -67,9 +67,9 @@ export const HeroParallax = ({
           translateY,
           opacity,
         }}
-        className="mt-[530px] mb-28"
+        className="mt-[300px] sm:mt-[400px] lg:mt-[530px] mb-16 sm:mb-20 lg:mb-28"
       >
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 sm:space-x-8 lg:space-x-20 mb-8 sm:mb-12 lg:mb-20">
           {firstRow.map((product) => (
             <ProductCard
               product={product}
@@ -78,7 +78,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
+        <motion.div className="flex flex-row mb-8 sm:mb-12 lg:mb-20 space-x-4 sm:space-x-8 lg:space-x-20">
           {secondRow.map((product) => (
             <ProductCard
               product={product}
@@ -87,7 +87,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
+        <motion.div className="flex flex-row-reverse space-x-reverse space-x-4 sm:space-x-8 lg:space-x-20">
           {thirdRow.map((product) => (
             <ProductCard
               product={product}
@@ -103,7 +103,7 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl absolute mx-auto px-4 w-full flex items-center justify-center mt-[-1100px] lg:mt-[-800px] ">
+    <div className="max-w-7xl absolute mx-auto px-4 w-full flex items-center justify-center mt-[-600px] sm:mt-[-800px] lg:mt-[-1100px] xl:mt-[-800px]">
       <CoverDemo />
     </div>
   );
@@ -129,18 +129,19 @@ export const ProductCard = ({
         y: -20,
       }}
       key={product.title}
-      className="group/product h-96 w-[30rem] relative shrink-0"
+      className="group/product h-48 w-48 sm:h-64 sm:w-64 lg:h-96 lg:w-[30rem] relative shrink-0"
     >
       <>
         <Image
           src={product.thumbnail}
           height={600}
           width={600}
-          className="object-cover object-left-top absolute h-full w-full inset-0"
+          className="object-cover object-left-top absolute h-full w-full inset-0 rounded-lg"
           alt={product.title}
+          sizes="(max-width: 640px) 192px, (max-width: 1024px) 256px, 480px"
         />
-        <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-        <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
+        <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none rounded-lg"></div>
+        <h2 className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 opacity-0 group-hover/product:opacity-100 text-white text-sm sm:text-base">
           {product.title}
         </h2>
       </>

@@ -69,18 +69,14 @@ export const Navbar = ({ children, className }: NavbarProps) => {
   return (
     <motion.div
       ref={ref}
-      // IMPORTANT: Change this to class of `fixed` if you want the navbar to be fixed
-      className={cn("fixed inset-x-0 sm:top-2 z-40 w-full", className)}
+      className={cn("fixed inset-x-0 top-0 sm:top-2 z-40 w-full px-2 sm:px-4", className)}
     >
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
-          // Só passa a prop visible para componentes React customizados, não para elementos DOM
           const childType = child.type;
           if (typeof childType === "string") {
-            // É um elemento DOM (div, a, span, etc.), não passa a prop visible
             return child;
           } else {
-            // É um componente React customizado, passa a prop visible
             return React.cloneElement(
               child as React.ReactElement<{ visible?: boolean }>,
               { visible }
@@ -101,32 +97,26 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
-        width: visible ? "40%" : "100%",
-        y: visible ? 20 : 0,
+        width: visible ? "95%" : "100%",
+        y: visible ? 8 : 0,
       }}
       transition={{
         type: "spring",
         stiffness: 200,
         damping: 50,
       }}
-      style={{
-        minWidth: "800px",
-      }}
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-4 py-2 lg:flex dark:bg-transparent",
-        visible && "bg-white/80 dark:bg-neutral-950/80",
+        "relative z-[60] mx-auto hidden w-full max-w-7xl flex-row items-center justify-between self-start rounded-full bg-transparent px-3 py-2 lg:flex dark:bg-transparent",
+        visible && "bg-white/90 dark:bg-neutral-950/90",
         className
       )}
     >
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
-          // Só passa a prop visible para componentes React customizados, não para elementos DOM
           const childType = child.type;
           if (typeof childType === "string") {
-            // É um elemento DOM (div, a, span, etc.), não passa a prop visible
             return child;
           } else {
-            // É um componente React customizado, passa a prop visible
             return React.cloneElement(
               child as React.ReactElement<{ visible?: boolean }>,
               { visible }
@@ -151,7 +141,7 @@ export const NavItems = ({
     <motion.div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm font-medium transition duration-200 lg:flex lg:space-x-2",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-1 text-sm font-medium transition duration-200 lg:flex xl:space-x-2",
         className
       )}
     >
@@ -160,7 +150,7 @@ export const NavItems = ({
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
           className={cn(
-            "relative px-4 py-2 transition-colors duration-200",
+            "relative px-3 py-2 transition-colors duration-200 text-center min-w-[44px] min-h-[44px] flex items-center justify-center",
             visible
               ? "text-neutral-600 hover:text-neutral-800 dark:text-neutral-300 dark:hover:text-white"
               : "text-white hover:text-gray-200"
@@ -177,7 +167,7 @@ export const NavItems = ({
               )}
             />
           )}
-          <span className="relative z-20">{item.name}</span>
+          <span className="relative z-20 text-xs lg:text-sm">{item.name}</span>
         </a>
       ))}
     </motion.div>
@@ -192,11 +182,11 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         boxShadow: visible
           ? "0 0 24px rgba(34, 42, 53, 0.06), 0 1px 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(34, 42, 53, 0.04), 0 0 4px rgba(34, 42, 53, 0.08), 0 16px 68px rgba(47, 48, 55, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1) inset"
           : "none",
-        width: visible ? "90%" : "100%",
-        paddingRight: visible ? "12px" : "0px",
-        paddingLeft: visible ? "12px" : "0px",
-        borderRadius: visible ? "4px" : "2rem",
-        y: visible ? 20 : 0,
+        width: "100%",
+        paddingRight: "8px",
+        paddingLeft: "8px",
+        borderRadius: visible ? "12px" : "24px",
+        y: visible ? 8 : 0,
       }}
       transition={{
         type: "spring",
@@ -204,20 +194,17 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
         damping: 50,
       }}
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 lg:hidden",
-        visible && "bg-white/80 dark:bg-neutral-950/80",
+        "relative z-50 mx-auto flex w-full flex-col items-center justify-between bg-transparent px-2 py-2 lg:hidden",
+        visible && "bg-white/90 dark:bg-neutral-950/90",
         className
       )}
     >
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
-          // Só passa a prop visible para componentes React customizados, não para elementos DOM
           const childType = child.type;
           if (typeof childType === "string") {
-            // É um elemento DOM (div, a, span, etc.), não passa a prop visible
             return child;
           } else {
-            // É um componente React customizado, passa a prop visible
             return React.cloneElement(
               child as React.ReactElement<{ visible?: boolean }>,
               { visible }
@@ -238,19 +225,16 @@ export const MobileNavHeader = ({
   return (
     <div
       className={cn(
-        "flex w-full flex-row items-center justify-between",
+        "flex w-full flex-row items-center justify-between px-2",
         className
       )}
     >
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
-          // Só passa a prop visible para componentes React customizados, não para elementos DOM
           const childType = child.type;
           if (typeof childType === "string") {
-            // É um elemento DOM (div, a, span, etc.), não passa a prop visible
             return child;
           } else {
-            // É um componente React customizado, passa a prop visible
             return React.cloneElement(
               child as React.ReactElement<{ visible?: boolean }>,
               { visible }
@@ -272,11 +256,12 @@ export const MobileNavMenu = ({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
           className={cn(
-            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-8 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] dark:bg-neutral-950",
+            "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-lg bg-white px-4 py-6 shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] dark:bg-neutral-950 overflow-hidden",
             className
           )}
         >
@@ -296,42 +281,54 @@ export const MobileNavToggle = ({
   onClick: () => void;
   visible?: boolean;
 }) => {
-  return isOpen ? (
-    <IconX
-      className={`${visible ? "text-black dark:text-white" : "text-white"}`}
+  return (
+    <button
       onClick={onClick}
-    />
-  ) : (
-    <IconMenu2
-      className={`${visible ? "text-black dark:text-white" : "text-white"}`}
-      onClick={onClick}
-    />
+      className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+      aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+    >
+      {isOpen ? (
+        <IconX
+          className={`w-6 h-6 ${visible ? "text-black dark:text-white" : "text-white"}`}
+        />
+      ) : (
+        <IconMenu2
+          className={`w-6 h-6 ${visible ? "text-black dark:text-white" : "text-white"}`}
+        />
+      )}
+    </button>
   );
 };
 
 export const NavbarLogo = ({ visible }: { visible?: boolean }) => {
   return (
     <a
-      href="#"
-      className="relative z-20 mr-4 flex items-center space-x-2 px-0 py-1 text-sm font-normal"
+      href="/"
+      className="relative z-20 flex items-center space-x-2 px-2 py-1 text-sm font-normal min-w-[44px] min-h-[44px]"
     >
       <div
         className={`transition-all duration-200 ${
           visible ? "" : "bg-white rounded-lg p-1"
         }`}
       >
-        <Image src="/primecode.svg" alt="logo" width={30} height={30} />
+        <Image 
+          src="/primecode.svg" 
+          alt="PrimeCode Solutions Logo" 
+          width={28} 
+          height={28}
+          className="w-7 h-7 sm:w-8 sm:h-8"
+        />
       </div>
       <div className="flex flex-col items-start justify-center leading-tight">
         <span
-          className={`font-medium text-center transition-colors duration-200 ${
+          className={`font-medium text-center transition-colors duration-200 text-sm sm:text-base ${
             visible ? "text-black dark:text-white" : "text-white"
           }`}
         >
           PrimeCode
         </span>
         <span
-          className={`text-[10px] text-center mx-auto transition-colors duration-200 ${
+          className={`text-[9px] sm:text-[10px] text-center mx-auto transition-colors duration-200 ${
             visible ? "text-black dark:text-white" : "text-white"
           }`}
         >
@@ -360,7 +357,7 @@ export const NavbarButton = ({
   | React.ComponentPropsWithoutRef<"button">
 )) => {
   const baseStyles =
-    "px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
+    "px-3 py-2 sm:px-4 sm:py-2 rounded-md bg-white button bg-white text-black text-xs sm:text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center min-w-[44px] min-h-[44px] flex items-center justify-center";
 
   const variantStyles = {
     primary:

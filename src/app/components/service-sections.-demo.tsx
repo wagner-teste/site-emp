@@ -9,9 +9,9 @@ export default function ServiceSectionsCarrossel() {
   ));
 
   return (
-    <div className="w-full h-full py-20">
-      <h2 className="max-w-7xl pl-4 mx-auto text-xl md:text-5xl font-bold text-neutral-800 text-white font-sans">
-        Seção de Servicos
+    <div className="w-full h-full py-10 sm:py-16 lg:py-20">
+      <h2 className="max-w-7xl pl-4 mx-auto text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-800 text-white font-sans mb-4 sm:mb-6 lg:mb-8">
+        Seção de Serviços
       </h2>
       <Carousel items={cards} />
     </div>
@@ -20,13 +20,13 @@ export default function ServiceSectionsCarrossel() {
 
 const ContentWeb = () => {
   return (
-    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
-      <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-4 sm:p-6 md:p-8 lg:p-14 rounded-3xl mb-4">
+      <p className="text-neutral-600 dark:text-neutral-400 text-sm sm:text-base md:text-lg lg:text-2xl font-sans max-w-3xl mx-auto leading-relaxed">
         <span className="font-bold text-neutral-700 dark:text-neutral-200">
-          Transformamos suas ideias em solução digitais que impulsionam
+          Transformamos suas ideias em soluções digitais que impulsionam
           resultados
         </span>{" "}
-        atraves de sites modernos, responsivos e preparados para destacar seu
+        através de sites modernos, responsivos e preparados para destacar seu
         negócio no mundo online.
       </p>
       <img
@@ -34,7 +34,7 @@ const ContentWeb = () => {
         alt="Web site"
         height="500"
         width="500"
-        className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-lg"
+        className="w-full sm:w-3/4 md:w-1/2 h-auto mx-auto object-contain rounded-lg mt-4 sm:mt-6"
       />
     </div>
   );
@@ -42,8 +42,8 @@ const ContentWeb = () => {
 
 const ContentMobile = () => {
   return (
-    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
-      <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-4 sm:p-6 md:p-8 lg:p-14 rounded-3xl mb-4">
+      <p className="text-neutral-600 dark:text-neutral-400 text-sm sm:text-base md:text-lg lg:text-2xl font-sans max-w-3xl mx-auto leading-relaxed">
         <span className="font-bold text-neutral-700 dark:text-neutral-200">
           Levamos sua empresa até a palma da mão do cliente com apps eficientes,
         </span>{" "}
@@ -54,7 +54,7 @@ const ContentMobile = () => {
         alt="App mobile"
         height="500"
         width="500"
-        className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-lg"
+        className="w-full sm:w-3/4 md:w-1/2 h-auto mx-auto object-contain rounded-lg mt-4 sm:mt-6"
       />
     </div>
   );
@@ -62,8 +62,8 @@ const ContentMobile = () => {
 
 const ContentConsult = () => {
   return (
-    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
-      <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-4 sm:p-6 md:p-8 lg:p-14 rounded-3xl mb-4">
+      <p className="text-neutral-600 dark:text-neutral-400 text-sm sm:text-base md:text-lg lg:text-2xl font-sans max-w-3xl mx-auto leading-relaxed">
         <span className="font-bold text-neutral-700 dark:text-neutral-200">
           Identificamos pontos de melhoria, otimizamos recursos e orientamos decisões
         </span>{" "}
@@ -74,7 +74,7 @@ const ContentConsult = () => {
         alt="Consultoria"
         height="500"
         width="500"
-        className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-lg"
+        className="w-full sm:w-3/4 md:w-1/2 h-auto mx-auto object-contain rounded-lg mt-4 sm:mt-6"
       />
     </div>
   );
@@ -82,8 +82,8 @@ const ContentConsult = () => {
 
 const ContentSuport = () => {
   return (
-    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
-      <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-4 sm:p-6 md:p-8 lg:p-14 rounded-3xl mb-4">
+      <p className="text-neutral-600 dark:text-neutral-400 text-sm sm:text-base md:text-lg lg:text-2xl font-sans max-w-3xl mx-auto leading-relaxed">
         <span className="font-bold text-neutral-700 dark:text-neutral-200">
           Conte com uma equipe especializada pronta para resolver problemas rapidamente,
         </span>{" "}
@@ -94,7 +94,7 @@ const ContentSuport = () => {
         alt="Suporte tecnico"
         height="500"
         width="500"
-        className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-lg"
+        className="w-full sm:w-3/4 md:w-1/2 h-auto mx-auto object-contain rounded-lg mt-4 sm:mt-6"
       />
     </div>
   );
@@ -102,8 +102,8 @@ const ContentSuport = () => {
 
 const ContentProcess = () => {
   return (
-    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
-      <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+    <div className="bg-[#F5F5F7] dark:bg-neutral-800 p-4 sm:p-6 md:p-8 lg:p-14 rounded-3xl mb-4">
+      <p className="text-neutral-600 dark:text-neutral-400 text-sm sm:text-base md:text-lg lg:text-2xl font-sans max-w-3xl mx-auto leading-relaxed">
         <span className="font-bold text-neutral-700 dark:text-neutral-200">
           Implemente soluções inteligentes que otimizam fluxos de trabalho.
         </span>{" "}
@@ -114,7 +114,7 @@ const ContentProcess = () => {
         alt="Macbook mockup from Aceternity UI"
         height="500"
         width="500"
-        className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-lg"
+        className="w-full sm:w-3/4 md:w-1/2 h-auto mx-auto object-contain rounded-lg mt-4 sm:mt-6"
       />
     </div>
   );
@@ -153,10 +153,4 @@ const data = [
     src: "https://plus.unsplash.com/premium_photo-1726407884242-ad23db752114?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
      content: <ContentProcess />,
   },
-  /*{
-    category: "Hiring",
-    title: "Hiring for a Staff Software Engineer",
-    src: "https://images.unsplash.com/photo-1511984804822-e16ba72f5848?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    content: <DummyContent />,
-  },*/
 ];

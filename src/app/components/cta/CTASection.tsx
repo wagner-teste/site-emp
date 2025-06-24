@@ -24,7 +24,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
     {
       id: "cta-web-dev",
       label: "Desenvolvimento Web",
-      icon: <IconCode className="h-6 w-6" />,
+      icon: <IconCode className="h-5 w-5 sm:h-6 sm:w-6" />,
       action: "internal" as const,
       target: "/services/components/web-development",
       description: "Sites e sistemas web modernos",
@@ -35,7 +35,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
     {
       id: "cta-mobile-app",
       label: "App Mobile",
-      icon: <IconDeviceMobile className="h-6 w-6" />,
+      icon: <IconDeviceMobile className="h-5 w-5 sm:h-6 sm:w-6" />,
       action: "internal" as const,
       target: "/services/components/mobile-apps",
       description: "Aplicativos iOS e Android"
@@ -43,7 +43,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
     {
       id: "cta-consulting",
       label: "Consultoria Tech",
-      icon: <IconBulb className="h-6 w-6" />,
+      icon: <IconBulb className="h-5 w-5 sm:h-6 sm:w-6" />,
       action: "internal" as const,
       target: "/services/components/tech-consulting",
       description: "Estratégia e transformação digital"
@@ -51,7 +51,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
     {
       id: "cta-support",
       label: "Suporte Técnico",
-      icon: <IconHeadset className="h-6 w-6" />,
+      icon: <IconHeadset className="h-5 w-5 sm:h-6 sm:w-6" />,
       action: "internal" as const,
       target: "/services/components/technical-support",
       description: "Manutenção e suporte 24/7"
@@ -59,26 +59,26 @@ export const CTASection: React.FC<CTASectionProps> = ({
   ];
 
   return (
-    <section className={`py-20 bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 ${className}`}>
+    <section className={`py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-4 sm:mb-6 leading-tight">
             {title}
           </h2>
-          <p className="text-lg text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto mb-8">
+          <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed">
             {subtitle}
           </p>
 
           {showTimer && <CountdownTimer />}
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {ctaButtons.map((button, index) => (
             <motion.div
               key={button.id}
@@ -86,15 +86,15 @@ export const CTASection: React.FC<CTASectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-neutral-800 p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 text-center"
+              className="bg-white dark:bg-neutral-800 p-4 sm:p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300 text-center"
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-4">
+              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-3 sm:mb-4">
                 {button.icon}
               </div>
-              <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-2">
+              <h3 className="text-base sm:text-lg font-semibold text-neutral-900 dark:text-white mb-2">
                 {button.label}
               </h3>
-              <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-4">
+              <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-3 sm:mb-4">
                 {button.description}
               </p>
               <CTAButton
@@ -106,6 +106,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
                 variant="gradient"
                 size="sm"
                 fullWidth
+                className="text-sm"
               >
                 Solicitar Orçamento
               </CTAButton>
@@ -130,11 +131,12 @@ export const CTASection: React.FC<CTASectionProps> = ({
             variant="gradient"
             size="lg"
             urgencyTag={showTimer}
+            className="mb-4 w-full sm:w-auto"
           >
             Falar com Especialista Agora
           </CTAButton>
 
-          <div className="mt-4 flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <CTAButton
               id="cta-whatsapp"
               type="secondary"
@@ -143,6 +145,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
               section={section}
               variant="outline"
               size="md"
+              className="w-full sm:w-auto"
             >
               WhatsApp
             </CTAButton>
@@ -155,6 +158,7 @@ export const CTASection: React.FC<CTASectionProps> = ({
               section={section}
               variant="outline"
               size="md"
+              className="w-full sm:w-auto"
             >
               Ligar Agora
             </CTAButton>
@@ -193,10 +197,10 @@ const CountdownTimer: React.FC = () => {
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="inline-flex items-center space-x-2 bg-red-500 text-white px-6 py-3 rounded-full mb-8"
+      className="inline-flex items-center space-x-2 bg-red-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-6 sm:mb-8"
     >
-      <IconClock className="h-5 w-5" />
-      <span className="font-semibold">
+      <IconClock className="h-4 w-4 sm:h-5 sm:w-5" />
+      <span className="font-semibold text-sm sm:text-base">
         Oferta expira em: {String(timeLeft.hours).padStart(2, '0')}:
         {String(timeLeft.minutes).padStart(2, '0')}:
         {String(timeLeft.seconds).padStart(2, '0')}

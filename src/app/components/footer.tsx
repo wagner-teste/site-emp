@@ -118,17 +118,17 @@ export default function Footer() {
   return (
     <footer className="bg-neutral-900 text-white" role="contentinfo">
       {/* Seção principal do footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12">
           
           {/* Seção de Contato */}
-          <div className="lg:col-span-1">
-            <h3 className="text-lg font-semibold mb-6 text-white">
+          <div className="lg:col-span-1 sm:col-span-2 lg:col-span-1">
+            <h3 className="text-lg font-semibold mb-4 sm:mb-6 text-white">
               Entre em Contato
             </h3>
             
             {/* Endereço */}
-            <div className="mb-4 flex items-start space-x-3">
+            <div className="mb-3 sm:mb-4 flex items-start space-x-3">
               <IconMapPin 
                 className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" 
                 aria-hidden="true"
@@ -144,14 +144,14 @@ export default function Footer() {
             </div>
 
             {/* Telefone */}
-            <div className="mb-4 flex items-center space-x-3">
+            <div className="mb-3 sm:mb-4 flex items-center space-x-3">
               <IconPhone 
                 className="h-5 w-5 text-blue-400 flex-shrink-0" 
                 aria-hidden="true"
               />
               <Link
                 href={`tel:${contactInfo.phone.replace(/\D/g, '')}`}
-                className="text-sm text-neutral-300 hover:text-blue-400 transition-colors duration-300"
+                className="text-sm text-neutral-300 hover:text-blue-400 transition-colors duration-300 min-h-[44px] flex items-center"
                 aria-label={`Ligar para ${contactInfo.phone}`}
               >
                 {contactInfo.phone}
@@ -159,14 +159,14 @@ export default function Footer() {
             </div>
 
             {/* E-mail */}
-            <div className="mb-6 flex items-center space-x-3">
+            <div className="mb-4 sm:mb-6 flex items-center space-x-3">
               <IconMail 
                 className="h-5 w-5 text-blue-400 flex-shrink-0" 
                 aria-hidden="true"
               />
               <Link 
                 href={`mailto:${contactInfo.email}`}
-                className="text-sm text-neutral-300 hover:text-blue-400 transition-colors duration-300 break-all"
+                className="text-sm text-neutral-300 hover:text-blue-400 transition-colors duration-300 break-all min-h-[44px] flex items-center"
                 aria-label={`Enviar e-mail para ${contactInfo.email}`}
               >
                 {contactInfo.email}
@@ -178,7 +178,7 @@ export default function Footer() {
               <h4 className="text-sm font-medium mb-3 text-white">
                 Siga-nos nas Redes Sociais
               </h4>
-              <div className="flex space-x-4">
+              <div className="flex space-x-3 sm:space-x-4">
                 {socialLinks.map((social) => {
                   const IconComponent = social.icon;
                   return (
@@ -187,7 +187,7 @@ export default function Footer() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-neutral-400 hover:text-blue-400 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
+                      className="text-neutral-400 hover:text-blue-400 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 p-2 min-w-[44px] min-h-[44px] flex items-center justify-center"
                       aria-label={social.ariaLabel}
                     >
                       <IconComponent className="h-6 w-6" />
@@ -199,17 +199,17 @@ export default function Footer() {
           </div>
 
           {/* Mapa do Site - Empresa */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">
+          <div className="sm:col-span-1">
+            <h3 className="text-lg font-semibold mb-4 sm:mb-6 text-white">
               Empresa
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {siteMapLinks.empresa.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
                     onClick={(e) => handleAnchorClick(e, link.href)}
-                    className="text-sm text-neutral-300 hover:text-blue-400 transition-colors duration-300 hover:underline"
+                    className="text-sm text-neutral-300 hover:text-blue-400 transition-colors duration-300 hover:underline block py-1 min-h-[44px] flex items-center"
                   >
                     {link.name}
                   </Link>
@@ -219,16 +219,16 @@ export default function Footer() {
           </div>
 
           {/* Mapa do Site - Serviços */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">
+          <div className="sm:col-span-1">
+            <h3 className="text-lg font-semibold mb-4 sm:mb-6 text-white">
               Serviços
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {siteMapLinks.servicos.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-neutral-300 hover:text-blue-400 transition-colors duration-300 hover:underline"
+                    className="text-sm text-neutral-300 hover:text-blue-400 transition-colors duration-300 hover:underline block py-1 min-h-[44px] flex items-center"
                   >
                     {link.name}
                   </Link>
@@ -238,18 +238,18 @@ export default function Footer() {
           </div>
 
           {/* Mapa do Site - Recursos */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">
+          <div className="sm:col-span-1">
+            <h3 className="text-lg font-semibold mb-4 sm:mb-6 text-white">
               Recursos
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {siteMapLinks.recursos.map((link) => {
                 const IconComponent = link.icon;
                 return (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-sm text-neutral-300 hover:text-blue-400 transition-colors duration-300 hover:underline flex items-center space-x-2"
+                      className="text-sm text-neutral-300 hover:text-blue-400 transition-colors duration-300 hover:underline flex items-center space-x-2 py-1 min-h-[44px]"
                     >
                       <IconComponent className="h-4 w-4" />
                       <span>{link.name}</span>
@@ -261,18 +261,18 @@ export default function Footer() {
           </div>
 
           {/* Mapa do Site - Atendimento */}
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">
+          <div className="sm:col-span-1">
+            <h3 className="text-lg font-semibold mb-4 sm:mb-6 text-white">
               Atendimento
             </h3>
-            <ul className="space-y-3">
+            <ul className="space-y-2 sm:space-y-3">
               {siteMapLinks.atendimento.map((link) => {
                 const IconComponent = link.icon;
                 return (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-sm text-neutral-300 hover:text-blue-400 transition-colors duration-300 hover:underline flex items-center space-x-2"
+                      className="text-sm text-neutral-300 hover:text-blue-400 transition-colors duration-300 hover:underline flex items-center space-x-2 py-1 min-h-[44px]"
                     >
                       <IconComponent className="h-4 w-4" />
                       <span>{link.name}</span>
@@ -287,21 +287,21 @@ export default function Footer() {
 
       {/* Seção inferior com links legais e copyright */}
       <div className="border-t border-neutral-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             
             {/* Links Legais */}
-            <div className="flex flex-wrap justify-center md:justify-start gap-4 md:gap-6">
+            <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-2 sm:gap-4 md:gap-6 w-full md:w-auto">
               {legalLinks.map((link, index) => (
                 <React.Fragment key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-neutral-400 hover:text-blue-400 transition-colors duration-300"
+                    className="text-sm text-neutral-400 hover:text-blue-400 transition-colors duration-300 text-center md:text-left py-2 min-h-[44px] flex items-center justify-center md:justify-start"
                   >
                     {link.name}
                   </Link>
                   {index < legalLinks.length - 1 && (
-                    <span className="text-neutral-600 hidden md:inline">|</span>
+                    <span className="text-neutral-600 hidden md:inline self-center">|</span>
                   )}
                 </React.Fragment>
               ))}
@@ -309,10 +309,10 @@ export default function Footer() {
 
             {/* Copyright */}
             <div className="text-sm text-neutral-400 text-center md:text-right">
-              <p>
+              <p className="mb-1">
                 © {currentYear} PrimeCode Solutions. Todos os direitos reservados.
               </p>
-              <p className="mt-1">
+              <p>
                 Desenvolvido com ❤️ pela nossa equipe.
               </p>
             </div>

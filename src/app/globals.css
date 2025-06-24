@@ -82,46 +82,239 @@
   * {
     @apply border-border outline-ring/50;
   }
+  
   body {
     @apply bg-background text-foreground overflow-x-hidden;
+    font-size: 16px; /* Base font size for better mobile readability */
+    line-height: 1.6;
   }
   
-  /* Responsividade mobile-first */
+  /* Mobile-first responsive typography */
+  h1 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight font-bold;
+  }
+  
+  h2 {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-tight font-bold;
+  }
+  
+  h3 {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight font-semibold;
+  }
+  
+  h4 {
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl leading-tight font-semibold;
+  }
+  
+  h5 {
+    @apply text-sm sm:text-base md:text-lg lg:text-xl leading-tight font-medium;
+  }
+  
+  h6 {
+    @apply text-sm sm:text-base md:text-lg leading-tight font-medium;
+  }
+  
+  p {
+    @apply text-sm sm:text-base leading-relaxed;
+  }
+  
+  /* Container responsivo */
   .container {
-    @apply px-4;
+    @apply px-4 sm:px-6 lg:px-8 mx-auto;
+    max-width: 100%;
   }
   
-  /* Melhorar legibilidade em mobile */
-  h1, h2, h3, h4, h5, h6 {
-    @apply leading-tight;
+  /* Touch targets mínimos para acessibilidade */
+  button, 
+  .btn, 
+  a[role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    @apply min-h-[44px] min-w-[44px] py-2 px-3;
+    touch-action: manipulation; /* Melhora responsividade touch */
   }
   
-  /* Botões mais acessíveis em mobile */
-  button, .btn {
-    @apply min-h-[44px] min-w-[44px] py-3 px-3;
+  /* Links com área de toque adequada */
+  a {
+    @apply min-h-[44px] inline-flex items-center;
+    touch-action: manipulation;
   }
   
-  @screen md {
+  /* Inputs responsivos */
+  input, 
+  textarea, 
+  select {
+    @apply min-h-[44px] text-base; /* Evita zoom no iOS */
+  }
+  
+  /* Imagens responsivas por padrão */
+  img {
+    @apply max-w-full h-auto;
+  }
+  
+  /* Scroll suave */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Melhor contraste para acessibilidade */
+  .text-neutral-600 {
+    color: oklch(0.45 0.016 285.938);
+  }
+  
+  /* Breakpoints customizados para melhor responsividade */
+  @screen sm {
     .container {
       @apply px-6;
     }
     
-    button, .btn {
-      @apply py-2 px-4;
+    button, 
+    .btn {
+      @apply py-2.5 px-4;
+    }
+  }
+  
+  @screen md {
+    .container {
+      @apply px-8;
+    }
+  }
+  
+  @screen lg {
+    .container {
+      max-width: 1024px;
+    }
+  }
+  
+  @screen xl {
+    .container {
+      max-width: 1280px;
+    }
+  }
+  
+  @screen 2xl {
+    .container {
+      max-width: 1536px;
+    }
+  }
+  
+  /* Utilities para responsividade */
+  .text-responsive {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+  
+  .heading-responsive {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  .padding-responsive {
+    @apply p-4 sm:p-6 md:p-8 lg:p-12;
+  }
+  
+  .margin-responsive {
+    @apply m-4 sm:m-6 md:m-8 lg:m-12;
+  }
+  
+  /* Grid responsivo */
+  .grid-responsive {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8;
+  }
+  
+  /* Flexbox responsivo */
+  .flex-responsive {
+    @apply flex flex-col sm:flex-row gap-4 sm:gap-6;
+  }
+  
+  /* Espaçamento responsivo */
+  .space-responsive > * + * {
+    @apply mt-4 sm:mt-6 lg:mt-8;
+  }
+  
+  /* Focus states melhorados para acessibilidade */
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-500;
+  }
+  
+  /* Animações reduzidas para usuários que preferem */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  
+  /* Melhorias para dark mode */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+  }
+  
+  /* Otimizações para impressão */
+  @media print {
+    * {
+      @apply text-black bg-white;
     }
     
-    body {
-      @apply overflow-x-auto;
+    .no-print {
+      display: none !important;
     }
   }
 }
 
-/* Otimizações para performance */
-img {
-  @apply max-w-full h-auto;
+/* Utilities específicas para componentes */
+.card-responsive {
+  @apply p-4 sm:p-6 lg:p-8 rounded-lg sm:rounded-xl lg:rounded-2xl;
 }
 
-/* Melhorar contraste para acessibilidade */
-.text-neutral-600 {
-  color: oklch(0.45 0.016 285.938);
+.section-responsive {
+  @apply py-8 sm:py-12 lg:py-16 xl:py-20;
+}
+
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Scrollbar customizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-neutral-100 dark:bg-neutral-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-300 dark:bg-neutral-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral-400 dark:bg-neutral-500;
+}
+
+/* Seleção de texto customizada */
+::selection {
+  @apply bg-blue-500 text-white;
+}
+
+::-moz-selection {
+  @apply bg-blue-500 text-white;
 }
